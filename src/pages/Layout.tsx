@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import './Layout.css'
-import Header from './Header'
+import Header from '../Header'
 type Props = {
     children: ReactNode;
     title?: string;
