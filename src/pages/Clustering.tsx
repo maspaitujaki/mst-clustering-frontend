@@ -7,9 +7,11 @@ import axios from "axios";
 const Clustering = () => {
   const [errorMessage, setErrorMessage] = React.useState("");
   const [img, setImg] = React.useState(mario);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = (e: SyntheticEvent) =>{
     e.preventDefault();
+    setIsLoading(true);
     const form  = document.getElementById("formClustering");
     const formData = new FormData(form as HTMLFormElement);
     console.log(url + "/clustering");
@@ -27,8 +29,10 @@ const Clustering = () => {
       console.log(imageObjectURL)
       setImg(imageObjectURL);
       setErrorMessage("")
+      setIsLoading(false);
     })
     .catch(err => {
+      setIsLoading(false);
       if (err.response.status === 500){
         setErrorMessage("Server Error");
       } else if(err.response.status === 400){
@@ -48,7 +52,7 @@ const Clustering = () => {
                 <label className='m-2 font-medium text-lg text-teal-800' htmlFor="countCluster">Number of cluster:</label>
                 <input className='m-2 border border-black rounded w-12' type="number" name="clusterCount" id="" min={1}/>
               </div>
-              <button onClick={handleSubmit} className='border-teal-500 bg-teal-400 text-white font-semibold m-2 rounded-md border hover:bg-teal-500 hover:border-teal-600 active:mx-3'>Submit</button>
+              <button onClick={handleSubmit} className='border-teal-500 bg-teal-400 text-white font-semibold m-2 rounded-md border hover:bg-teal-500 hover:border-teal-600 active:mx-3' >{isLoading? "Loading...":"Submit"}</button>
               <p id="errorMessage" className="text-red-500 m-2 font-semibold">{errorMessage}</p>
             </form>
           </div>
