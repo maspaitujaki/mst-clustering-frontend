@@ -4,8 +4,6 @@ import React, { SyntheticEvent } from "react";
 import url from "../url";
 import axios from "axios";
 
-
-
 const Clustering = () => {
   const [errorMessage, setErrorMessage] = React.useState("");
   const [img, setImg] = React.useState(mario);
@@ -34,7 +32,7 @@ const Clustering = () => {
       if (err.response.status === 500){
         setErrorMessage("Server Error");
       } else if(err.response.status === 400){
-        setErrorMessage(err.response.data);
+        setErrorMessage("Bad Input");
       }
     });
   }
