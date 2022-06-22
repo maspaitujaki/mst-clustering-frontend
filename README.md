@@ -37,5 +37,7 @@ docker compose up -d
  <img width="960" alt="image" src="https://user-images.githubusercontent.com/72780615/175011288-10b25e59-cef2-4f20-a89b-debb0f6e6e3f.png">
 8. Klik salah kartu log untuk menampilkan kembali grafik
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/72780615/175011398-72af80d6-6ed3-4397-b013-16742eefbc68.png">
+
 ## Referensi Belajar
+
 [Docker + ReactJS tutorial: Development to Production workflow + multi-stage builds + docker compose](https://www.youtube.com/watch?v=3xDAU5cvi5E)
