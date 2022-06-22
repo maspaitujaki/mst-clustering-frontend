@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mst-postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=chaptoen
+      - POSTGRES_DB=mst-irk
+  mst-backend:
+    build: ./backend
+    ports:
+      - 9000:9000
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=chaptoen
+      - DB_PORT=5432
+      - DB_NAME=mst-irk
+      - DB_HOST=mst-postgres
+    depends_on:
+      - mst-postgres
+  mst-frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
